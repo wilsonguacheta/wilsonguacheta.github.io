@@ -46,8 +46,8 @@
           <span class="badge">Power BI</span>
           <span class="badge">Folium</span>
         </div>
-        <h1 class="case-hero__title">E-Commerce Geoespacial — Olist</h1>
-        <p class="case-hero__tagline">Estadística espacial avanzada sobre 100 000 órdenes brasileñas (2016–2018): clustering de vendedores, variación regional en tiempos de entrega y autocorrelación espacial de satisfacción.</p>
+        <h1 class="case-hero__title" data-i18n="p3.title">E-Commerce Geoespacial — Olist</h1>
+        <p class="case-hero__tagline" data-i18n="p3.tagline">Estadística espacial avanzada sobre 100 000 órdenes brasileñas (2016–2018): clustering de vendedores, variación regional en tiempos de entrega y autocorrelación espacial de satisfacción.</p>
       </div>
     </header>
 
@@ -74,7 +74,7 @@
         <div style="overflow-x: auto;">
           <table class="data-table">
             <thead>
-              <tr><th>Característica</th><th>Detalle</th></tr>
+              <tr><th data-i18n="table.characteristic">Característica</th><th data-i18n="table.detail">Detalle</th></tr>
             </thead>
             <tbody>
               <tr><td>Fuente</td><td>Olist Brazilian E-Commerce Public Dataset — Kaggle</td></tr>
@@ -94,19 +94,19 @@
         <h2 class="case-section__title" data-i18n="case.tools">Herramientas y tecnologías</h2>
         <div style="display: flex; flex-direction: column; gap: 0.75rem;">
           <div>
-            <p class="skills__group-title">Geoespacial y estadística espacial</p>
+            <p class="skills__group-title" data-i18n="p3.tools.geo-stats">Geoespacial y estadística espacial</p>
             <div class="badge-group"><span class="badge">GeoPandas 1.0+</span><span class="badge">shapely</span><span class="badge">esda</span><span class="badge">libpysal</span><span class="badge">scikit-learn (DBSCAN)</span><span class="badge">mgwr (GWR)</span></div>
           </div>
           <div>
-            <p class="skills__group-title">Visualización</p>
+            <p class="skills__group-title" data-i18n="p3.tools.viz">Visualización</p>
             <div class="badge-group"><span class="badge">Folium</span><span class="badge">matplotlib</span><span class="badge">seaborn</span></div>
           </div>
           <div>
-            <p class="skills__group-title">Dashboard</p>
+            <p class="skills__group-title" data-i18n="p3.tools.dashboard">Dashboard</p>
             <div class="badge-group"><span class="badge">Power BI Desktop</span><span class="badge">Azure Maps</span><span class="badge">DAX</span></div>
           </div>
           <div>
-            <p class="skills__group-title">Datos y entorno</p>
+            <p class="skills__group-title" data-i18n="p3.tools.data-env">Datos y entorno</p>
             <div class="badge-group"><span class="badge">Python 3.10</span><span class="badge">Pandas</span><span class="badge">kagglehub</span><span class="badge">Conda</span></div>
           </div>
         </div>
@@ -121,42 +121,42 @@
           <div class="step">
             <div class="step__number">1</div>
             <div class="step__content">
-              <p class="step__label">EDA</p>
+              <p class="step__label" data-i18n="p3.step.1">EDA</p>
               <p class="step__desc">Perfil de las 8 tablas: distribuciones, timeline de órdenes y conteos de nulos.</p>
             </div>
           </div>
           <div class="step">
             <div class="step__number">2</div>
             <div class="step__content">
-              <p class="step__label">Calidad geoespacial</p>
+              <p class="step__label" data-i18n="p3.step.2">Calidad geoespacial</p>
               <p class="step__desc">Detección de coordenadas fuera de Brasil; derivación de centroides ZIP como media de lat/lon en la tabla geolocation.</p>
             </div>
           </div>
           <div class="step">
             <div class="step__number">3</div>
             <div class="step__content">
-              <p class="step__label">Clustering DBSCAN</p>
+              <p class="step__label" data-i18n="p3.step.3">Clustering DBSCAN</p>
               <p class="step__desc"><code>eps=50 km</code>, <code>min_samples=3</code> sobre coordenadas de vendedores. Identificación de clusters densos y zonas desatendidas.</p>
             </div>
           </div>
           <div class="step">
             <div class="step__number">4</div>
             <div class="step__content">
-              <p class="step__label">GWR (Regresión Geográficamente Ponderada)</p>
+              <p class="step__label" data-i18n="p3.step.4">GWR (Regresión Geográficamente Ponderada)</p>
               <p class="step__desc">Distancia Haversine vendedor-comprador como predictor del tiempo de entrega; coeficientes locales para revelar cuellos de botella regionales.</p>
             </div>
           </div>
           <div class="step">
             <div class="step__number">5</div>
             <div class="step__content">
-              <p class="step__label">Moran's I / LISA</p>
+              <p class="step__label" data-i18n="p3.step.5">Moran's I / LISA</p>
               <p class="step__desc">Índice de autocorrelación espacial de satisfacción promedio por estado; mapa de cuadrantes HH/LL/HL/LH.</p>
             </div>
           </div>
           <div class="step">
             <div class="step__number">6</div>
             <div class="step__content">
-              <p class="step__label">Dashboard Power BI</p>
+              <p class="step__label" data-i18n="p3.step.6">Dashboard Power BI</p>
               <p class="step__desc">Exportación de 4 CSVs analíticos; esquema estrella con <code>DimSellerState</code>; medidas DAX para KPIs y flujos OD; Azure Maps para visualización geográfica.</p>
             </div>
           </div>
@@ -188,7 +188,7 @@
         <div style="overflow-x: auto; margin-bottom: 2rem;">
           <table class="data-table">
             <thead>
-              <tr><th>Análisis</th><th>Hallazgo</th></tr>
+              <tr><th data-i18n="table.analysis">Análisis</th><th data-i18n="table.finding">Hallazgo</th></tr>
             </thead>
             <tbody>
               <tr><td>DBSCAN</td><td>Concentración máxima en corredor Sudeste SP–MG–PR; 71% de flujos OD desde São Paulo</td></tr>
@@ -200,12 +200,12 @@
         </div>
 
         <!-- Mapas interactivos -->
-        <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">Mapas interactivos</h3>
+        <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;" data-i18n="p3.results.maps">Mapas interactivos</h3>
 
         <div style="display: flex; flex-direction: column; gap: 1.5rem;">
 
           <div>
-            <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">Clusters DBSCAN de vendedores</p>
+            <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;" data-i18n="p3.map.dbscan">Clusters DBSCAN de vendedores</p>
             <div class="map-container">
               <iframe
                 src="../assets/maps/p3/seller_clusters.html"
@@ -217,7 +217,7 @@
           </div>
 
           <div>
-            <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">Coeficientes GWR: efecto local de la distancia sobre la entrega</p>
+            <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;" data-i18n="p3.map.gwr">Coeficientes GWR: efecto local de la distancia sobre la entrega</p>
             <div class="map-container">
               <iframe
                 src="../assets/maps/p3/gwr_coefficients.html"
@@ -229,7 +229,7 @@
           </div>
 
           <div>
-            <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">LISA — autocorrelación espacial de satisfacción</p>
+            <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;" data-i18n="p3.map.lisa">LISA — autocorrelación espacial de satisfacción</p>
             <div class="map-container">
               <iframe
                 src="../assets/maps/p3/lisa_satisfaction.html"
@@ -243,7 +243,7 @@
         </div>
 
         <!-- Dashboard screenshots -->
-        <h3 style="font-size: 1rem; font-weight: 600; margin: 2rem 0 0.75rem;">Dashboard Power BI</h3>
+        <h3 style="font-size: 1rem; font-weight: 600; margin: 2rem 0 0.75rem;" data-i18n="p3.results.dashboard">Dashboard Power BI</h3>
         <div style="display: flex; flex-direction: column; gap: 1rem;">
           <div class="result-item">
             <img

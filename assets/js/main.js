@@ -44,6 +44,62 @@ const translations = {
     "case.conclusions": "Conclusiones",
     "case.links":       "Ver repositorio",
     "case.demo":        "Ver demo",
+    /* Shared table headers */
+    "table.characteristic": "Característica",
+    "table.detail":         "Detalle",
+    "table.analysis":       "Análisis",
+    "table.finding":        "Hallazgo",
+    "table.source":         "Fuente",
+    "table.product":        "Producto",
+    "table.period":         "Período",
+    "table.type":           "Tipo",
+    "table.module":         "Módulo",
+    "table.key-finding":    "Hallazgo clave",
+    /* Skills groups (index.html) */
+    "skills.group.languages": "Lenguajes",
+    "skills.group.data":      "Datos / EDA",
+    "skills.group.geo":       "Geoespacial",
+    "skills.group.stats":     "Estadística espacial",
+    "skills.group.bi":        "BI / Visualización",
+    "skills.group.db":        "Bases de datos",
+    "skills.group.tools":     "Herramientas",
+    /* Project taglines */
+    "p1.tagline": "120 años de alpinismo: conquista de picos, escaladores de élite, tendencias históricas y el Everest bajo la lupa.",
+    "p2.tagline": "Pipeline geoespacial end-to-end: 85 ciudades colombianas, 8 fuentes heterogéneas, 6 módulos analíticos sobre crecimiento, sprawl, deforestación y riesgos naturales.",
+    "p3.tagline": "Estadística espacial avanzada sobre 100 000 órdenes brasileñas (2016–2018): clustering de vendedores, variación regional en tiempos de entrega y autocorrelación espacial de satisfacción.",
+    /* P1 step labels */
+    "p1.step.load":     "Carga",
+    "p1.step.clean":    "Limpieza",
+    "p1.step.merge":    "Merge",
+    "p1.step.analysis": "Análisis y visualización",
+    /* P2 tool groups */
+    "p2.tools.geo-raster": "Geoespacial raster",
+    "p2.tools.geo-vector": "Geoespacial vector",
+    "p2.tools.db":         "Base de datos",
+    "p2.tools.analysis":   "Análisis y visualización",
+    /* P2 step labels */
+    "p2.step.0": "Estandarización",
+    "p2.step.1": "Carga en base de datos",
+    "p2.step.2": "Módulos analíticos (M1–M6)",
+    "p2.step.3": "Reporte narrativo",
+    /* P3 tool groups */
+    "p3.tools.geo-stats": "Geoespacial y estadística espacial",
+    "p3.tools.viz":       "Visualización",
+    "p3.tools.dashboard": "Dashboard",
+    "p3.tools.data-env":  "Datos y entorno",
+    /* P3 step labels */
+    "p3.step.1": "EDA",
+    "p3.step.2": "Calidad geoespacial",
+    "p3.step.3": "Clustering DBSCAN",
+    "p3.step.4": "GWR (Regresión Geográficamente Ponderada)",
+    "p3.step.5": "Moran's I / LISA",
+    "p3.step.6": "Dashboard Power BI",
+    /* P3 map/results labels */
+    "p3.results.maps":      "Mapas interactivos",
+    "p3.results.dashboard": "Dashboard Power BI",
+    "p3.map.dbscan":        "Clusters DBSCAN de vendedores",
+    "p3.map.gwr":           "Coeficientes GWR: efecto local de la distancia sobre la entrega",
+    "p3.map.lisa":          "LISA — autocorrelación espacial de satisfacción",
   },
   en: {
     /* Nav */
@@ -87,6 +143,62 @@ const translations = {
     "case.conclusions": "Conclusions",
     "case.links":       "View repository",
     "case.demo":        "View demo",
+    /* Shared table headers */
+    "table.characteristic": "Characteristic",
+    "table.detail":         "Detail",
+    "table.analysis":       "Analysis",
+    "table.finding":        "Finding",
+    "table.source":         "Source",
+    "table.product":        "Product",
+    "table.period":         "Period",
+    "table.type":           "Type",
+    "table.module":         "Module",
+    "table.key-finding":    "Key finding",
+    /* Skills groups (index.html) */
+    "skills.group.languages": "Languages",
+    "skills.group.data":      "Data / EDA",
+    "skills.group.geo":       "Geospatial",
+    "skills.group.stats":     "Spatial Statistics",
+    "skills.group.bi":        "BI / Visualization",
+    "skills.group.db":        "Databases",
+    "skills.group.tools":     "Tools",
+    /* Project taglines */
+    "p1.tagline": "120 years of mountaineering: peak conquests, elite climbers, historical trends, and Everest in the spotlight.",
+    "p2.tagline": "End-to-end geospatial pipeline: 85 Colombian cities, 8 heterogeneous sources, 6 analytical modules on growth, sprawl, deforestation, and natural hazards.",
+    "p3.tagline": "Advanced spatial statistics on 100,000 Brazilian orders (2016–2018): seller clustering, regional delivery time variation, and spatial autocorrelation of satisfaction.",
+    /* P1 step labels */
+    "p1.step.load":     "Load",
+    "p1.step.clean":    "Cleaning",
+    "p1.step.merge":    "Merge",
+    "p1.step.analysis": "Analysis & visualization",
+    /* P2 tool groups */
+    "p2.tools.geo-raster": "Geospatial raster",
+    "p2.tools.geo-vector": "Geospatial vector",
+    "p2.tools.db":         "Database",
+    "p2.tools.analysis":   "Analysis and visualization",
+    /* P2 step labels */
+    "p2.step.0": "Standardization",
+    "p2.step.1": "Database load",
+    "p2.step.2": "Analytical modules (M1–M6)",
+    "p2.step.3": "Narrative report",
+    /* P3 tool groups */
+    "p3.tools.geo-stats": "Geospatial and spatial statistics",
+    "p3.tools.viz":       "Visualization",
+    "p3.tools.dashboard": "Dashboard",
+    "p3.tools.data-env":  "Data and environment",
+    /* P3 step labels */
+    "p3.step.1": "EDA",
+    "p3.step.2": "Geospatial quality",
+    "p3.step.3": "DBSCAN Clustering",
+    "p3.step.4": "GWR (Geographically Weighted Regression)",
+    "p3.step.5": "Moran's I / LISA",
+    "p3.step.6": "Power BI Dashboard",
+    /* P3 map/results labels */
+    "p3.results.maps":      "Interactive maps",
+    "p3.results.dashboard": "Power BI Dashboard",
+    "p3.map.dbscan":        "DBSCAN seller clusters",
+    "p3.map.gwr":           "GWR Coefficients: local distance effect on delivery",
+    "p3.map.lisa":          "LISA — spatial autocorrelation of satisfaction",
   }
 };
 
@@ -109,10 +221,6 @@ function setLanguage(lang) {
     if (t[key] !== undefined) el.textContent = t[key];
   });
 
-  document.querySelectorAll("[data-i18n-href]").forEach(el => {
-    const key = el.getAttribute("data-i18n-href");
-    if (t[key] !== undefined) el.setAttribute("href", t[key]);
-  });
 }
 
 /* ============================================================
@@ -146,27 +254,11 @@ function initYear() {
 }
 
 /* ============================================================
-   SMOOTH SCROLL (fallback for older browsers)
-   ============================================================ */
-function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", e => {
-      const target = document.querySelector(anchor.getAttribute("href"));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
-  });
-}
-
-/* ============================================================
    INIT
    ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
   initHamburger();
   initYear();
-  initSmoothScroll();
   setLanguage(currentLang);
 
   const toggle = document.getElementById("lang-toggle");

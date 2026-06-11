@@ -2,15 +2,16 @@
    TOKENS
    ============================================================ */
 :root {
-  /* Colors */
-  --color-bg:           #F8F9FA;
-  --color-bg-alt:       #EEF3F8;
-  --color-surface:      #FFFFFF;
-  --color-text:         #1A1A2E;
-  --color-text-muted:   #6C757D;
-  --color-accent:       #2D6A9F;
-  --color-accent-hover: #245A8A;
-  --color-border:       #DEE2E6;
+  /* Colors — Earthy & Geospatial */
+  --color-bg:           #F5F0E8;
+  --color-bg-alt:       #EDE5D4;
+  --color-surface:      #FEFCF8;
+  --color-text:         #2C2416;
+  --color-text-muted:   #7A6A55;
+  --color-accent:       #6B8F71;
+  --color-accent-hover: #537060;
+  --color-accent-2:     #C4622D;
+  --color-border:       #D4C5A9;
 
   /* Typography */
   --font-primary: 'Inter', sans-serif;
@@ -93,7 +94,7 @@ section { padding-block: var(--space-3xl); }
   display: block;
   width: 40px;
   height: 3px;
-  background: var(--color-accent);
+  background: var(--color-accent-2);
   margin-top: var(--space-xs);
   border-radius: 2px;
 }
@@ -104,9 +105,11 @@ section { padding-block: var(--space-3xl); }
 .nav {
   position: fixed;
   top: 0;
-  inset-inline: 0;
+  left: 0;
+  right: 0;
   height: var(--nav-height);
-  background: rgba(248, 249, 250, 0.95);
+  background: rgba(245, 240, 232, 0.95);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
   z-index: 1000;
@@ -190,7 +193,8 @@ section { padding-block: var(--space-3xl); }
   flex-direction: column;
   position: absolute;
   top: var(--nav-height);
-  inset-inline: 0;
+  left: 0;
+  right: 0;
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   padding: var(--space-lg) var(--space-md);
@@ -214,7 +218,10 @@ main { padding-top: var(--nav-height); }
   min-height: calc(100vh - var(--nav-height));
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+  background:
+    repeating-radial-gradient(circle at 68% 38%, transparent 0, transparent 30px, rgba(107,143,113,0.055) 30px, rgba(107,143,113,0.055) 31px),
+    repeating-radial-gradient(circle at 68% 38%, transparent 0, transparent 62px, rgba(107,143,113,0.035) 62px, rgba(107,143,113,0.035) 63px),
+    linear-gradient(160deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
 }
 
 .hero__content { max-width: 700px; }
@@ -222,7 +229,7 @@ main { padding-top: var(--nav-height); }
 .hero__eyebrow {
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-accent-2);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: var(--space-sm);
@@ -276,7 +283,7 @@ main { padding-top: var(--nav-height); }
   background: var(--color-accent-hover);
   color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(45, 106, 159, 0.3);
+  box-shadow: 0 4px 12px rgba(107, 143, 113, 0.35);
 }
 
 .btn--outline {
@@ -374,13 +381,13 @@ main { padding-top: var(--nav-height); }
 
 .card__img {
   width: 100%;
-  height: 200px;
+  height: 240px;
   object-fit: cover;
   background: var(--color-bg-alt);
 }
 
 .card__img--placeholder {
-  height: 200px;
+  height: 240px;
   background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-border) 100%);
   display: flex;
   align-items: center;
@@ -565,7 +572,7 @@ main { padding-top: var(--nav-height); }
   flex-shrink: 0;
   width: 32px;
   height: 32px;
-  background: var(--color-accent);
+  background: var(--color-accent-2);
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -613,6 +620,7 @@ main { padding-top: var(--nav-height); }
 .map-container iframe {
   display: block;
   width: 100%;
+  height: 500px;
 }
 
 /* Iframe charts (Plotly) */

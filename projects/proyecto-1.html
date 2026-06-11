@@ -44,8 +44,8 @@
           <span class="badge">Plotly</span>
           <span class="badge">Jupyter</span>
         </div>
-        <h1 class="case-hero__title">Expediciones Himaláyicas (1905–2024)</h1>
-        <p class="case-hero__tagline">120 años de alpinismo: conquista de picos, escaladores de élite, tendencias históricas y el Everest bajo la lupa.</p>
+        <h1 class="case-hero__title" data-i18n="p1.title">Expediciones Himaláyicas (1905–2024)</h1>
+        <p class="case-hero__tagline" data-i18n="p1.tagline">120 años de alpinismo: conquista de picos, escaladores de élite, tendencias históricas y el Everest bajo la lupa.</p>
       </div>
     </header>
 
@@ -72,7 +72,7 @@
         <div style="overflow-x: auto;">
           <table class="data-table">
             <thead>
-              <tr><th>Característica</th><th>Detalle</th></tr>
+              <tr><th data-i18n="table.characteristic">Característica</th><th data-i18n="table.detail">Detalle</th></tr>
             </thead>
             <tbody>
               <tr><td>Fuente</td><td>Himalayan Database — challenge Maven Analytics</td></tr>
@@ -107,28 +107,28 @@
           <div class="step">
             <div class="step__number">1</div>
             <div class="step__content">
-              <p class="step__label">Carga</p>
+              <p class="step__label" data-i18n="p1.step.load">Carga</p>
               <p class="step__desc"><code>load_raw_data()</code> en <code>src/data_utils.py</code> lee las 4 tablas principales desde <code>data/raw/</code>.</p>
             </div>
           </div>
           <div class="step">
             <div class="step__number">2</div>
             <div class="step__content">
-              <p class="step__label">Limpieza</p>
+              <p class="step__label" data-i18n="p1.step.clean">Limpieza</p>
               <p class="step__desc">Imputación de nulos lógicos (NaN → False en columnas de éxito), normalización de ciudadanías con <code>.str.title()</code>, estandarización de claves de join.</p>
             </div>
           </div>
           <div class="step">
             <div class="step__number">3</div>
             <div class="step__content">
-              <p class="step__label">Merge</p>
+              <p class="step__label" data-i18n="p1.step.merge">Merge</p>
               <p class="step__desc">Join <code>exped ↔ peaks</code> por <code>peakid</code> para construir la tabla analítica maestra.</p>
             </div>
           </div>
           <div class="step">
             <div class="step__number">4</div>
             <div class="step__content">
-              <p class="step__label">Análisis y visualización</p>
+              <p class="step__label" data-i18n="p1.step.analysis">Análisis y visualización</p>
               <p class="step__desc">Cada sección del notebook responde una pregunta de investigación con un gráfico Plotly exportado como PNG.</p>
             </div>
           </div>
@@ -160,7 +160,7 @@
         <div style="overflow-x: auto; margin-bottom: 2rem;">
           <table class="data-table">
             <thead>
-              <tr><th>Análisis</th><th>Hallazgo</th></tr>
+              <tr><th data-i18n="table.analysis">Análisis</th><th data-i18n="table.finding">Hallazgo</th></tr>
             </thead>
             <tbody>
               <tr><td>Conquista</td><td>368 de 480 picos escalados (76,7%); 112 (23,3%) sin ninguna ascensión</td></tr>

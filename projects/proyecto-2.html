@@ -45,8 +45,8 @@
           <span class="badge">rasterio</span>
           <span class="badge">PostgreSQL</span>
         </div>
-        <h1 class="case-hero__title">Expansión Urbana Colombia (1975–2030)</h1>
-        <p class="case-hero__tagline">Pipeline geoespacial end-to-end: 85 ciudades colombianas, 8 fuentes heterogéneas, 6 módulos analíticos sobre crecimiento, sprawl, deforestación y riesgos naturales.</p>
+        <h1 class="case-hero__title" data-i18n="p2.title">Expansión Urbana Colombia (1975–2030)</h1>
+        <p class="case-hero__tagline" data-i18n="p2.tagline">Pipeline geoespacial end-to-end: 85 ciudades colombianas, 8 fuentes heterogéneas, 6 módulos analíticos sobre crecimiento, sprawl, deforestación y riesgos naturales.</p>
       </div>
     </header>
 
@@ -73,7 +73,7 @@
         <div style="overflow-x: auto;">
           <table class="data-table">
             <thead>
-              <tr><th>Fuente</th><th>Producto</th><th>Período</th><th>Tipo</th></tr>
+              <tr><th data-i18n="table.source">Fuente</th><th data-i18n="table.product">Producto</th><th data-i18n="table.period">Período</th><th data-i18n="table.type">Tipo</th></tr>
             </thead>
             <tbody>
               <tr><td>JRC / GHSL</td><td>GHS-BUILT-S (superficie construida)</td><td>1975–2030</td><td>Raster 100 m</td></tr>
@@ -99,19 +99,19 @@
         <h2 class="case-section__title" data-i18n="case.tools">Herramientas y tecnologías</h2>
         <div style="display: flex; flex-direction: column; gap: 0.75rem;">
           <div>
-            <p class="skills__group-title">Geoespacial raster</p>
+            <p class="skills__group-title" data-i18n="p2.tools.geo-raster">Geoespacial raster</p>
             <div class="badge-group"><span class="badge">rasterio</span><span class="badge">rasterstats</span><span class="badge">GDAL</span></div>
           </div>
           <div>
-            <p class="skills__group-title">Geoespacial vector</p>
+            <p class="skills__group-title" data-i18n="p2.tools.geo-vector">Geoespacial vector</p>
             <div class="badge-group"><span class="badge">GeoPandas</span><span class="badge">shapely</span><span class="badge">pyproj</span></div>
           </div>
           <div>
-            <p class="skills__group-title">Base de datos</p>
+            <p class="skills__group-title" data-i18n="p2.tools.db">Base de datos</p>
             <div class="badge-group"><span class="badge">PostgreSQL 15</span><span class="badge">PostGIS 3.4</span><span class="badge">SQLAlchemy 2</span><span class="badge">psycopg3</span></div>
           </div>
           <div>
-            <p class="skills__group-title">Análisis y visualización</p>
+            <p class="skills__group-title" data-i18n="p2.tools.analysis">Análisis y visualización</p>
             <div class="badge-group"><span class="badge">Python 3.11</span><span class="badge">Pandas</span><span class="badge">NumPy</span><span class="badge">matplotlib</span><span class="badge">Jupyter Lab</span></div>
           </div>
         </div>
@@ -126,28 +126,28 @@
           <div class="step">
             <div class="step__number">0</div>
             <div class="step__content">
-              <p class="step__label">Estandarización</p>
+              <p class="step__label" data-i18n="p2.step.0">Estandarización</p>
               <p class="step__desc">9 scripts reproyectan, mosaican, remuestrean y recortan a Colombia las 8 fuentes de datos → EPSG:9377 @ 100 m, LZW + tiles 512×512.</p>
             </div>
           </div>
           <div class="step">
             <div class="step__number">1</div>
             <div class="step__content">
-              <p class="step__label">Carga en base de datos</p>
+              <p class="step__label" data-i18n="p2.step.1">Carga en base de datos</p>
               <p class="step__desc">Carga de vectores y catálogo de rasters en PostgreSQL/PostGIS. DDL: esquemas raw, catalog, analysis, staging; índices espaciales y vistas materializadas.</p>
             </div>
           </div>
           <div class="step">
             <div class="step__number">2</div>
             <div class="step__content">
-              <p class="step__label">Módulos analíticos (M1–M6)</p>
+              <p class="step__label" data-i18n="p2.step.2">Módulos analíticos (M1–M6)</p>
               <p class="step__desc">Seis módulos independientes calculan estadísticas zonales y derivados (tasas de crecimiento, índice de sprawl, solapamiento deforestación, exposición a amenazas, presión RUNAP, topografía).</p>
             </div>
           </div>
           <div class="step">
             <div class="step__number">3</div>
             <div class="step__content">
-              <p class="step__label">Reporte narrativo</p>
+              <p class="step__label" data-i18n="p2.step.3">Reporte narrativo</p>
               <p class="step__desc">Notebook <code>01_reporte_analisis.ipynb</code> responde las 6 preguntas con visualizaciones geoespaciales y construye el índice de vulnerabilidad compuesta multidimensional.</p>
             </div>
           </div>
@@ -180,7 +180,7 @@
         <div style="overflow-x: auto; margin-bottom: 2rem;">
           <table class="data-table">
             <thead>
-              <tr><th>Módulo</th><th>Hallazgo clave</th></tr>
+              <tr><th data-i18n="table.module">Módulo</th><th data-i18n="table.key-finding">Hallazgo clave</th></tr>
             </thead>
             <tbody>
               <tr><td>M1 — Crecimiento</td><td>Colombia más que duplicó su superficie urbana construida entre 1975 y 2025; mayor aceleración en 1990–2010</td></tr>
