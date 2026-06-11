@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Caso de estudio: estadística espacial avanzada sobre 100 000 órdenes de e-commerce brasileño (Olist) con DBSCAN, GWR, Moran's I y Power BI." />
+  <title>E-Commerce Geoespacial Olist — Wilson Guacheta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav" aria-label="Navegación principal">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo">Wilson Guacheta</a>
+      <ul class="nav__links" role="list">
+        <li><a href="../index.html#about"    data-i18n="nav.about">Sobre mí</a></li>
+        <li><a href="../index.html#projects" data-i18n="nav.projects">Proyectos</a></li>
+        <li><a href="../index.html#contact"  data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button id="lang-toggle" aria-label="Switch language">EN</button>
+        <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- HERO DEL CASO -->
+    <header class="case-hero">
+      <div class="container">
+        <a href="../index.html#projects" class="case-hero__back" data-i18n="case.back">← Proyectos</a>
+        <div class="badge-group" style="margin-bottom: 1rem;">
+          <span class="badge">Python</span>
+          <span class="badge">DBSCAN</span>
+          <span class="badge">GWR</span>
+          <span class="badge">Moran's I</span>
+          <span class="badge">Power BI</span>
+          <span class="badge">Folium</span>
+        </div>
+        <h1 class="case-hero__title">E-Commerce Geoespacial — Olist</h1>
+        <p class="case-hero__tagline">Estadística espacial avanzada sobre 100 000 órdenes brasileñas (2016–2018): clustering de vendedores, variación regional en tiempos de entrega y autocorrelación espacial de satisfacción.</p>
+      </div>
+    </header>
+
+    <!-- 1. RESUMEN EJECUTIVO -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.summary">Resumen ejecutivo</h2>
+        <p>Aplicación de técnicas geoestadísticas avanzadas (DBSCAN, GWR, Moran's I/LISA) al dataset público de Olist para revelar la dimensión espacial del e-commerce en Brasil que los KPIs agregados ocultan. El proyecto integra análisis en Python con un dashboard interactivo en Power BI (Azure Maps, esquema estrella, DAX) y tres mapas Folium embebidos.</p>
+      </div>
+    </section>
+
+    <!-- 2. CONTEXTO / PROBLEMA -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.context">Contexto / Problema</h2>
+        <p>Brasil es un país continental: un vendedor en São Paulo y un comprador en Manaus pueden compartir la misma categoría de producto y experimentar tiempos de entrega, costos de flete y puntajes de satisfacción radicalmente distintos. Los KPIs agregados (promedio nacional) oscurecen completamente esta señal espacial. Con los centroides ZIP del dataset de Olist es posible aplicar estadística espacial que va más allá del análisis tabular convencional.</p>
+      </div>
+    </section>
+
+    <!-- 3. DATOS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.data">Datos</h2>
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr><th>Característica</th><th>Detalle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Fuente</td><td>Olist Brazilian E-Commerce Public Dataset — Kaggle</td></tr>
+              <tr><td>Volumen</td><td>~100 000 órdenes · 8 tablas relacionales CSV · 2016–2018</td></tr>
+              <tr><td>Tablas clave</td><td>orders, order_items, customers, sellers, products, order_reviews, payments, geolocation</td></tr>
+              <tr><td>Geometría</td><td>Centroides de ZIP codes derivados de la tabla geolocation</td></tr>
+              <tr><td>Cobertura</td><td>Todo Brasil — 27 estados</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HERRAMIENTAS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.tools">Herramientas y tecnologías</h2>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div>
+            <p class="skills__group-title">Geoespacial y estadística espacial</p>
+            <div class="badge-group"><span class="badge">GeoPandas 1.0+</span><span class="badge">shapely</span><span class="badge">esda</span><span class="badge">libpysal</span><span class="badge">scikit-learn (DBSCAN)</span><span class="badge">mgwr (GWR)</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title">Visualización</p>
+            <div class="badge-group"><span class="badge">Folium</span><span class="badge">matplotlib</span><span class="badge">seaborn</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title">Dashboard</p>
+            <div class="badge-group"><span class="badge">Power BI Desktop</span><span class="badge">Azure Maps</span><span class="badge">DAX</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title">Datos y entorno</p>
+            <div class="badge-group"><span class="badge">Python 3.10</span><span class="badge">Pandas</span><span class="badge">kagglehub</span><span class="badge">Conda</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. METODOLOGÍA -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.method">Metodología / Proceso</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step__number">1</div>
+            <div class="step__content">
+              <p class="step__label">EDA</p>
+              <p class="step__desc">Perfil de las 8 tablas: distribuciones, timeline de órdenes y conteos de nulos.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">2</div>
+            <div class="step__content">
+              <p class="step__label">Calidad geoespacial</p>
+              <p class="step__desc">Detección de coordenadas fuera de Brasil; derivación de centroides ZIP como media de lat/lon en la tabla geolocation.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">3</div>
+            <div class="step__content">
+              <p class="step__label">Clustering DBSCAN</p>
+              <p class="step__desc"><code>eps=50 km</code>, <code>min_samples=3</code> sobre coordenadas de vendedores. Identificación de clusters densos y zonas desatendidas.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">4</div>
+            <div class="step__content">
+              <p class="step__label">GWR (Regresión Geográficamente Ponderada)</p>
+              <p class="step__desc">Distancia Haversine vendedor-comprador como predictor del tiempo de entrega; coeficientes locales para revelar cuellos de botella regionales.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">5</div>
+            <div class="step__content">
+              <p class="step__label">Moran's I / LISA</p>
+              <p class="step__desc">Índice de autocorrelación espacial de satisfacción promedio por estado; mapa de cuadrantes HH/LL/HL/LH.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">6</div>
+            <div class="step__content">
+              <p class="step__label">Dashboard Power BI</p>
+              <p class="step__desc">Exportación de 4 CSVs analíticos; esquema estrella con <code>DimSellerState</code>; medidas DAX para KPIs y flujos OD; Azure Maps para visualización geográfica.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. MI ROL -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.role">Mi rol y contribución</h2>
+        <div class="role-box">
+          <ul>
+            <li>Diseñé las tres preguntas de investigación y seleccioné las técnicas estadístico-espaciales apropiadas para cada una.</li>
+            <li>Construí los cuatro módulos reutilizables (<code>data_loader.py</code>, <code>quality_checks.py</code>, <code>geospatial_utils.py</code>, <code>models.py</code>) que separan la lógica de transformación del análisis.</li>
+            <li>Resolví el bug de filtrado de Azure Maps en Power BI: el mapa mostraba el total global porque usaba un campo de la tabla de hechos como <em>Location</em>. Lo solucioné creando la dimensión <code>DimSellerState</code> en DAX con relación bidireccional, propagando correctamente el contexto de filtro.</li>
+            <li>Diseñé el esquema estrella del dashboard y escribí las medidas DAX para KPIs y métricas de flujo OD.</li>
+            <li>Generé los tres mapas interactivos Folium con codificación visual diferenciada por técnica analítica.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. RESULTADOS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.results">Resultados e insights</h2>
+
+        <div style="overflow-x: auto; margin-bottom: 2rem;">
+          <table class="data-table">
+            <thead>
+              <tr><th>Análisis</th><th>Hallazgo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>DBSCAN</td><td>Concentración máxima en corredor Sudeste SP–MG–PR; 71% de flujos OD desde São Paulo</td></tr>
+              <tr><td>GWR</td><td>Efecto distancia-entrega varía significativamente por región; cuellos de botella en Norte y Nordeste</td></tr>
+              <tr><td>Moran's I</td><td>Autocorrelación espacial positiva confirmada; estados de baja satisfacción se agrupan geográficamente</td></tr>
+              <tr><td>Flujos OD</td><td>68 079 flujos desde São Paulo · distancia media ~1 500 km (escala continental)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mapas interactivos -->
+        <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">Mapas interactivos</h3>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+          <div>
+            <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">Clusters DBSCAN de vendedores</p>
+            <div class="map-container">
+              <iframe
+                src="../assets/maps/seller_clusters.html"
+                width="100%" height="480"
+                loading="lazy"
+                title="Mapa interactivo: clusters DBSCAN de vendedores por centroide ZIP en Brasil"
+              ></iframe>
+            </div>
+          </div>
+
+          <div>
+            <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">Coeficientes GWR: efecto local de la distancia sobre la entrega</p>
+            <div class="map-container">
+              <iframe
+                src="../assets/maps/gwr_coefficients.html"
+                width="100%" height="480"
+                loading="lazy"
+                title="Mapa interactivo: coeficientes GWR locales del efecto distancia sobre días de entrega"
+              ></iframe>
+            </div>
+          </div>
+
+          <div>
+            <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">LISA — autocorrelación espacial de satisfacción</p>
+            <div class="map-container">
+              <iframe
+                src="../assets/maps/lisa_satisfaction.html"
+                width="100%" height="480"
+                loading="lazy"
+                title="Mapa interactivo: cuadrantes LISA de satisfacción por estado (HH/LL/HL/LH)"
+              ></iframe>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Dashboard screenshots -->
+        <h3 style="font-size: 1rem; font-weight: 600; margin: 2rem 0 0.75rem;">Dashboard Power BI</h3>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="result-item">
+            <img
+              src="../assets/img/p3/Dashboard_p1.png"
+              alt="Página Geospatial Overview del dashboard: KPI cards de órdenes, ticket promedio y días de entrega, más mapa de Brasil con burbujas por estado vendedor"
+              loading="lazy"
+            />
+            <p class="result-caption">Página 1 — Geospatial Overview: KPIs + distribución geográfica de ventas</p>
+          </div>
+          <div class="result-item">
+            <img
+              src="../assets/img/p3/Dashboard_p2.png"
+              alt="Página OD Flow Analysis: Azure Maps con flujos origen-destino entre estados, top 10 rutas OD y slicers de estado vendedor"
+              loading="lazy"
+            />
+            <p class="result-caption">Página 2 — OD Flow Analysis: flujos origen-destino en Azure Maps</p>
+          </div>
+          <div class="result-item">
+            <img
+              src="../assets/img/p3/Dashboard_p3.png"
+              alt="Página Satisfaction: KPIs de satisfacción por estado, comparación entrega vs reseña y mapa de estados con bajo desempeño"
+              loading="lazy"
+            />
+            <p class="result-caption">Página 3 — Satisfaction: análisis espacial de satisfacción del comprador</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. CONCLUSIONES -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.conclusions">Conclusiones</h2>
+        <p>La escala continental de Brasil hace que el análisis espacial sea indispensable: los promedios nacionales ocultan disparidades regionales críticas. El GWR revela que no existe un único "efecto de la distancia" en Brasil —varía hasta un 300% entre regiones—, lo que tiene implicaciones directas para estrategias de distribución y gestión logística. La confirmación de autocorrelación espacial en satisfacción sugiere que las intervenciones de mejora deben diseñarse a nivel regional, no nacional.</p>
+        <p style="margin-top: 1rem; color: var(--color-text-muted); font-size: 0.875rem;"><strong>Aprendizaje técnico:</strong> En Power BI, Azure Maps requiere que el campo <em>Location</em> provenga de una tabla dimensión (no de hechos) para propagar correctamente el contexto de filtro. La solución fue crear <code>DimSellerState</code> como tabla calculada en DAX.</p>
+      </div>
+    </section>
+
+    <!-- 9. ENLACES -->
+    <section class="case-section">
+      <div class="container">
+        <div class="case-links">
+          <a href="#" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="case.links">Ver repositorio</a>
+          <a href="#" class="btn btn--outline" target="_blank" rel="noopener" data-i18n="case.demo">Ver dashboard</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><span data-i18n="footer.copy">Wilson Guacheta</span> · <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

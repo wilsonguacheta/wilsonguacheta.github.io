@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Caso de estudio: Análisis de 120 años de expediciones himaláyicas (1905–2024) con Python, Pandas y Plotly." />
+  <title>Expediciones Himaláyicas — Wilson Guacheta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav" aria-label="Navegación principal">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo">Wilson Guacheta</a>
+      <ul class="nav__links" role="list">
+        <li><a href="../index.html#about"    data-i18n="nav.about">Sobre mí</a></li>
+        <li><a href="../index.html#projects" data-i18n="nav.projects">Proyectos</a></li>
+        <li><a href="../index.html#contact"  data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button id="lang-toggle" aria-label="Switch language">EN</button>
+        <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- HERO DEL CASO -->
+    <header class="case-hero">
+      <div class="container">
+        <a href="../index.html#projects" class="case-hero__back" data-i18n="case.back">← Proyectos</a>
+        <div class="badge-group" style="margin-bottom: 1rem;">
+          <span class="badge">Python</span>
+          <span class="badge">Pandas</span>
+          <span class="badge">Plotly</span>
+          <span class="badge">Jupyter</span>
+        </div>
+        <h1 class="case-hero__title">Expediciones Himaláyicas (1905–2024)</h1>
+        <p class="case-hero__tagline">120 años de alpinismo: conquista de picos, escaladores de élite, tendencias históricas y el Everest bajo la lupa.</p>
+      </div>
+    </header>
+
+    <!-- 1. RESUMEN EJECUTIVO -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.summary">Resumen ejecutivo</h2>
+        <p>Análisis exploratorio end-to-end de la Himalayan Database (11 562 expediciones, 89 391 escaladores, 481 picos, 1905–2024) para responder cuatro preguntas sobre conquista de cimas, montañistas de élite, evolución histórica del éxito y el impacto del oxígeno suplementario en el Everest. Resultado: pipeline reproducible en Python con visualizaciones interactivas exportadas a PNG.</p>
+      </div>
+    </section>
+
+    <!-- 2. CONTEXTO / PROBLEMA -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.context">Contexto / Problema</h2>
+        <p>La Himalayan Database compila registros de campo levantados durante décadas por la periodista Elizabeth Hawley. El dataset cubre prácticamente toda la actividad de alpinismo de altitud desde inicios del siglo XX, pero es heterogéneo: múltiples tablas relacionales, campos con nulos que representan falsos negativos lógicos y formatos de texto inconsistentes. El reto fue transformar esos datos en un análisis coherente que permitiera identificar tendencias y factores de éxito en condiciones extremas.</p>
+      </div>
+    </section>
+
+    <!-- 3. DATOS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.data">Datos</h2>
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr><th>Característica</th><th>Detalle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Fuente</td><td>Himalayan Database — challenge Maven Analytics</td></tr>
+              <tr><td>Archivos</td><td>5 CSV: exped, members, peaks, refer, data dictionary</td></tr>
+              <tr><td>Volumen</td><td>11 425 expediciones · 89 000 miembros · 480 picos válidos</td></tr>
+              <tr><td>Cobertura</td><td>1905–2024</td></tr>
+              <tr><td>Tipo</td><td>Tabular relacional; sin coordenadas geográficas</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HERRAMIENTAS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.tools">Herramientas y tecnologías</h2>
+        <div class="badge-group">
+          <span class="badge">Python 3.x</span>
+          <span class="badge">Pandas</span>
+          <span class="badge">Plotly</span>
+          <span class="badge">Jupyter Notebook</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. METODOLOGÍA -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.method">Metodología / Proceso</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step__number">1</div>
+            <div class="step__content">
+              <p class="step__label">Carga</p>
+              <p class="step__desc"><code>load_raw_data()</code> en <code>src/data_utils.py</code> lee las 4 tablas principales desde <code>data/raw/</code>.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">2</div>
+            <div class="step__content">
+              <p class="step__label">Limpieza</p>
+              <p class="step__desc">Imputación de nulos lógicos (NaN → False en columnas de éxito), normalización de ciudadanías con <code>.str.title()</code>, estandarización de claves de join.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">3</div>
+            <div class="step__content">
+              <p class="step__label">Merge</p>
+              <p class="step__desc">Join <code>exped ↔ peaks</code> por <code>peakid</code> para construir la tabla analítica maestra.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">4</div>
+            <div class="step__content">
+              <p class="step__label">Análisis y visualización</p>
+              <p class="step__desc">Cada sección del notebook responde una pregunta de investigación con un gráfico Plotly exportado como PNG.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. MI ROL -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.role">Mi rol y contribución</h2>
+        <div class="role-box">
+          <ul>
+            <li>Diseñé las cuatro preguntas de investigación a partir del contexto del dataset y los criterios del challenge.</li>
+            <li>Construí <code>src/data_utils.py</code>, el módulo reutilizable de carga y limpieza, separando la lógica de transformación del análisis.</li>
+            <li>Tomé las decisiones de imputación (NaN como False en booleanos, normalización de ciudadanías) justificando cada criterio en el notebook.</li>
+            <li>Diseñé y generé todas las visualizaciones con Plotly, eligiendo la codificación visual adecuada para cada pregunta.</li>
+            <li>Redacté las conclusiones de cada sección y el resumen final de hallazgos.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. RESULTADOS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.results">Resultados e insights</h2>
+
+        <div style="overflow-x: auto; margin-bottom: 2rem;">
+          <table class="data-table">
+            <thead>
+              <tr><th>Análisis</th><th>Hallazgo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Conquista</td><td>368 de 480 picos escalados (76,7%); 112 (23,3%) sin ninguna ascensión</td></tr>
+              <tr><td>Élites</td><td>Sherpas nepaleses dominan: Jangbu Sherpa (170 cumbres), Pasang Sherpa (165)</td></tr>
+              <tr><td>Tendencias</td><td>Tasa de éxito creció de ~30% (décadas tempranas) a >55% en los 2000</td></tr>
+              <tr><td>Everest</td><td>2 347 expediciones, tasa global 63%; O₂ suplementario mejora significativamente el éxito</td></tr>
+              <tr><td>Regional</td><td>Khumbu concentra el mayor volumen; zonas remotas tienen tasas sensiblemente menores</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="results-grid">
+          <div class="result-item">
+            <img src="../assets/img/p1/everest_timeline.png" alt="Gráfico de área apilada: expediciones exitosas vs fallidas al Everest por año, 1921–2024" loading="lazy" />
+            <p class="result-caption">Everest: expediciones exitosas vs. fallidas por año (1921–2024)</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p1/temporal_trends.png" alt="Gráfico doble eje: barras de total de expediciones y línea de tasa de éxito por década" loading="lazy" />
+            <p class="result-caption">Volumen de expediciones y tasa de éxito por década</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p1/elite_climbers.png" alt="Barras horizontales: top 20 montañistas con más cumbres, dominado por Sherpas nepaleses" loading="lazy" />
+            <p class="result-caption">Top 20 escaladores con más cumbres exitosas</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p1/regional_treemap.png" alt="Treemap de regiones himaláyicas: tamaño = volumen de expediciones, color = tasa de éxito" loading="lazy" />
+            <p class="result-caption">Distribución de expediciones por región himaláyica</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONCLUSIONES -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.conclusions">Conclusiones</h2>
+        <p>El Himalaya sigue siendo un entorno de alta complejidad, pero con una exploración creciente y cada vez más eficiente. La evolución histórica evidencia que el éxito en montañismo se ha visto favorecido por avances técnicos, rutas comerciales y soporte logístico moderno. Sin embargo, la experiencia local —especialmente la de los Sherpas— continúa siendo un factor decisivo. El análisis confirma que aún existen picos sin escalar y regiones con baja tasa de éxito, por lo que el Himalaya sigue ofreciendo retos y oportunidades.</p>
+        <p style="margin-top: 1rem; color: var(--color-text-muted); font-size: 0.875rem;"><strong>Aprendizaje técnico:</strong> Separar la lógica de limpieza en un módulo propio (<code>data_utils.py</code>) hace que el notebook sea más legible, reproducible y fácil de mantener.</p>
+      </div>
+    </section>
+
+    <!-- 9. ENLACES -->
+    <section class="case-section">
+      <div class="container">
+        <div class="case-links">
+          <a href="#" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="case.links">Ver repositorio</a>
+          <a href="#" class="btn btn--outline" target="_blank" rel="noopener" data-i18n="case.demo">Ver notebook</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><span data-i18n="footer.copy">Wilson Guacheta</span> · <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

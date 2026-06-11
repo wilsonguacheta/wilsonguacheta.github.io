@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Caso de estudio: pipeline geoespacial end-to-end sobre expansión urbana colombiana (1975–2030) con Python, GeoPandas y PostGIS." />
+  <title>Expansión Urbana Colombia — Wilson Guacheta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav" aria-label="Navegación principal">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo">Wilson Guacheta</a>
+      <ul class="nav__links" role="list">
+        <li><a href="../index.html#about"    data-i18n="nav.about">Sobre mí</a></li>
+        <li><a href="../index.html#projects" data-i18n="nav.projects">Proyectos</a></li>
+        <li><a href="../index.html#contact"  data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button id="lang-toggle" aria-label="Switch language">EN</button>
+        <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- HERO DEL CASO -->
+    <header class="case-hero">
+      <div class="container">
+        <a href="../index.html#projects" class="case-hero__back" data-i18n="case.back">← Proyectos</a>
+        <div class="badge-group" style="margin-bottom: 1rem;">
+          <span class="badge">Python</span>
+          <span class="badge">GeoPandas</span>
+          <span class="badge">PostGIS</span>
+          <span class="badge">rasterio</span>
+          <span class="badge">PostgreSQL</span>
+        </div>
+        <h1 class="case-hero__title">Expansión Urbana Colombia (1975–2030)</h1>
+        <p class="case-hero__tagline">Pipeline geoespacial end-to-end: 85 ciudades colombianas, 8 fuentes heterogéneas, 6 módulos analíticos sobre crecimiento, sprawl, deforestación y riesgos naturales.</p>
+      </div>
+    </header>
+
+    <!-- 1. RESUMEN EJECUTIVO -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.summary">Resumen ejecutivo</h2>
+        <p>Pipeline completo de ingeniería y análisis geoespacial que cuantifica la expansión urbana colombiana (1975–2030) en 85 ciudades. Integra 8 fuentes de datos heterogéneas (GHSL, Hansen, SRTM, RUNAP, IDEAM) en un sistema de referencia unificado (EPSG:9377), carga los datos en PostgreSQL/PostGIS y ejecuta 6 módulos analíticos independientes para responder preguntas de política pública sobre ordenamiento territorial, gestión del riesgo y conservación ambiental.</p>
+      </div>
+    </section>
+
+    <!-- 2. CONTEXTO / PROBLEMA -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.context">Contexto / Problema</h2>
+        <p>Colombia es uno de los países más urbanizados de América Latina: más del 80% de su población vive en ciudades. Sin embargo, gran parte de esa urbanización ocurrió sin planificación adecuada, en laderas empinadas, zonas inundables o en proximidad a ecosistemas protegidos. La ausencia de un análisis integrado, multi-ciudad y con series temporales largas dificulta la toma de decisiones de política pública. Este proyecto construye esa base de datos y análisis desde fuentes abiertas de alta resolución.</p>
+      </div>
+    </section>
+
+    <!-- 3. DATOS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.data">Datos</h2>
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr><th>Fuente</th><th>Producto</th><th>Período</th><th>Tipo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>JRC / GHSL</td><td>GHS-BUILT-S (superficie construida)</td><td>1975–2030</td><td>Raster 100 m</td></tr>
+              <tr><td>JRC / GHSL</td><td>GHS-POP (población estimada)</td><td>1975–2030</td><td>Raster 100 m</td></tr>
+              <tr><td>JRC / GHSL</td><td>GHS-UCDB (centros urbanos)</td><td>2025</td><td>Vector — 85 ciudades</td></tr>
+              <tr><td>Hansen / UMD</td><td>Global Forest Change</td><td>2001–2025</td><td>Raster 100 m</td></tr>
+              <tr><td>PNN / MADS</td><td>RUNAP (áreas protegidas)</td><td>Vigente</td><td>Vector — ~1 200 AP</td></tr>
+              <tr><td>IDEAM</td><td>Amenaza movimientos en masa</td><td>Estático</td><td>Raster 100 m</td></tr>
+              <tr><td>IDEAM</td><td>Amenaza por inundación</td><td>Estático</td><td>Vector</td></tr>
+              <tr><td>NASA / USGS</td><td>SRTM DEM</td><td>2000</td><td>Raster 30 m → 100 m</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--color-text-muted);">
+          Sistema de referencia: EPSG:9377 (MAGNA-SIRGAS 2018 / Colombia Origen Nacional) · Resolución: 100 m × 100 m
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. HERRAMIENTAS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.tools">Herramientas y tecnologías</h2>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div>
+            <p class="skills__group-title">Geoespacial raster</p>
+            <div class="badge-group"><span class="badge">rasterio</span><span class="badge">rasterstats</span><span class="badge">GDAL</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title">Geoespacial vector</p>
+            <div class="badge-group"><span class="badge">GeoPandas</span><span class="badge">shapely</span><span class="badge">pyproj</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title">Base de datos</p>
+            <div class="badge-group"><span class="badge">PostgreSQL 15</span><span class="badge">PostGIS 3.4</span><span class="badge">SQLAlchemy 2</span><span class="badge">psycopg3</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title">Análisis y visualización</p>
+            <div class="badge-group"><span class="badge">Python 3.11</span><span class="badge">Pandas</span><span class="badge">NumPy</span><span class="badge">matplotlib</span><span class="badge">Jupyter Lab</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. METODOLOGÍA -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.method">Metodología / Proceso</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step__number">0</div>
+            <div class="step__content">
+              <p class="step__label">Estandarización</p>
+              <p class="step__desc">9 scripts reproyectan, mosaican, remuestrean y recortan a Colombia las 8 fuentes de datos → EPSG:9377 @ 100 m, LZW + tiles 512×512.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">1</div>
+            <div class="step__content">
+              <p class="step__label">Carga en base de datos</p>
+              <p class="step__desc">Carga de vectores y catálogo de rasters en PostgreSQL/PostGIS. DDL: esquemas raw, catalog, analysis, staging; índices espaciales y vistas materializadas.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">2</div>
+            <div class="step__content">
+              <p class="step__label">Módulos analíticos (M1–M6)</p>
+              <p class="step__desc">Seis módulos independientes calculan estadísticas zonales y derivados (tasas de crecimiento, índice de sprawl, solapamiento deforestación, exposición a amenazas, presión RUNAP, topografía).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">3</div>
+            <div class="step__content">
+              <p class="step__label">Reporte narrativo</p>
+              <p class="step__desc">Notebook <code>01_reporte_analisis.ipynb</code> responde las 6 preguntas con visualizaciones geoespaciales y construye el índice de vulnerabilidad compuesta multidimensional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. MI ROL -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.role">Mi rol y contribución</h2>
+        <div class="role-box">
+          <ul>
+            <li>Diseñé la arquitectura completa del pipeline (3 fases + reporte) con scripts orquestadores y soporte para re-ejecución parcial (<code>--from</code>, <code>--only</code>).</li>
+            <li>Construí el proceso de estandarización para 8 fuentes heterogéneas en un sistema de referencia unificado (EPSG:9377).</li>
+            <li>Resolví conflictos técnicos complejos: conflicto <code>proj.db</code> entre PostgreSQL y GDAL, limitación WKT1 para EPSG:9377, restricciones de nombres de columnas del sistema en PostgreSQL.</li>
+            <li>Diseñé el modelo de base de datos: esquemas <code>raw</code>, <code>catalog</code>, <code>analysis</code>, <code>staging</code>; vistas materializadas para buffers RUNAP; índices espaciales.</li>
+            <li>Implementé los 6 módulos analíticos: lógica de cálculo para sprawl, solapamiento deforestación-expansión, exposición poblacional a amenazas, presión sobre áreas protegidas y correlación topográfica.</li>
+            <li>Construí el índice de vulnerabilidad compuesta multidimensional (6 dimensiones) y la visualización radar comparativa para ciudades piloto.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. RESULTADOS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.results">Resultados e insights</h2>
+
+        <div style="overflow-x: auto; margin-bottom: 2rem;">
+          <table class="data-table">
+            <thead>
+              <tr><th>Módulo</th><th>Hallazgo clave</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>M1 — Crecimiento</td><td>Colombia más que duplicó su superficie urbana construida entre 1975 y 2025; mayor aceleración en 1990–2010</td></tr>
+              <tr><td>M2 — Sprawl</td><td>Mayoría de ciudades muestra densificación, pero un subconjunto de medianas presenta sprawl severo</td></tr>
+              <tr><td>M3 — Deforestación</td><td>Ciudades del Pacífico, piedemonte y Caribe muestran mayor solapamiento de expansión con zonas deforestadas</td></tr>
+              <tr><td>M4 — Amenazas</td><td>Millones de personas en zonas de amenaza alta; Medellín, Cúcuta y Villavicencio encabezan la lista</td></tr>
+              <tr><td>M5 — RUNAP</td><td>Superficie construida detectable dentro de polígonos RUNAP con tendencia creciente desde 1975</td></tr>
+              <tr><td>M6 — Topografía</td><td>Ciudades andinas muestran tendencia al alza en pendiente media de nuevas expansiones</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="results-grid">
+          <div class="result-item">
+            <img src="../assets/img/p2/mapa1_crecimiento_urbano.png" alt="Mapa de Colombia con polígonos UCDB coloreados por área construida en 2025 y crecimiento absoluto 2000–2025" loading="lazy" />
+            <p class="result-caption">Expansión urbana construida por ciudad — Colombia 2025</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p2/mapa2_sprawl_2025.png" alt="Mapa de Colombia con ciudades coloreadas por patrón: rojo=sprawl severo, azul=densificación" loading="lazy" />
+            <p class="result-caption">Patrón sprawl vs. densificación por ciudad — 2025</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p2/mapa4_vulnerabilidad_compuesta.png" alt="Mapa de Colombia con polígonos UCDB coloreados por índice de vulnerabilidad compuesta 0–1" loading="lazy" />
+            <p class="result-caption">Índice de vulnerabilidad urbana compuesta — 6 dimensiones 2025</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p2/fig16_radar_vulnerabilidad.png" alt="Gráfico radar comparando seis ciudades piloto en seis dimensiones de vulnerabilidad urbana" loading="lazy" />
+            <p class="result-caption">Perfil de vulnerabilidad compuesta — ciudades piloto</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p2/fig1_area_total_colombia.png" alt="Gráfico de línea: área urbana total Colombia 1975–2030, de ~378 km² a ~645 km²" loading="lazy" />
+            <p class="result-caption">Evolución del área urbana total en Colombia 1975–2030</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p2/fig4_scatter_sprawl.png" alt="Scatter plot: 85 ciudades colombianas, crecimiento área vs. crecimiento poblacional 2000–2025" loading="lazy" />
+            <p class="result-caption">Sprawl vs. densificación — 85 ciudades colombianas 2000–2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONCLUSIONES -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.conclusions">Conclusiones</h2>
+        <p>El análisis confirma que la urbanización colombiana ha sido cuantitativamente significativa pero cualitativamente desigual: las ciudades que más crecen no siempre son las que mejor lo hacen. La coexistencia de densificación eficiente y sprawl descontrolado en el mismo período evidencia la heterogeneidad de los procesos urbanos locales. El solapamiento con áreas de riesgo y ecosistemas protegidos señala la urgencia de políticas de ordenamiento territorial basadas en evidencia geoespacial de alta resolución.</p>
+        <p style="margin-top: 1rem; color: var(--color-text-muted); font-size: 0.875rem;"><strong>Aprendizaje técnico:</strong> La centralización de toda la configuración en <code>config/settings.py</code> (rutas, CRS, años, nodata) elimina inconsistencias entre los 21 scripts y hace el pipeline completamente reproducible con un único punto de verdad.</p>
+      </div>
+    </section>
+
+    <!-- 9. ENLACES -->
+    <section class="case-section">
+      <div class="container">
+        <div class="case-links">
+          <a href="#" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="case.links">Ver repositorio</a>
+          <a href="#" class="btn btn--outline" target="_blank" rel="noopener" data-i18n="case.demo">Ver notebook</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><span data-i18n="footer.copy">Wilson Guacheta</span> · <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
