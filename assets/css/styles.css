@@ -592,6 +592,10 @@ main { padding-top: var(--nav-height); }
   border: 1px solid var(--color-border);
 }
 
+.result-item--full {
+  grid-column: 1 / -1;
+}
+
 .result-caption {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
@@ -599,7 +603,7 @@ main { padding-top: var(--nav-height); }
   font-style: italic;
 }
 
-/* Iframe maps */
+/* Iframe maps (Folium) */
 .map-container {
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -609,6 +613,22 @@ main { padding-top: var(--nav-height); }
 .map-container iframe {
   display: block;
   width: 100%;
+}
+
+/* Iframe charts (Plotly) */
+.chart-container {
+  width: 100%;
+  height: 500px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.chart-container iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 /* Case study links */

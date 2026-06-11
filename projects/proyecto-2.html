@@ -195,27 +195,45 @@
 
         <div class="results-grid">
           <div class="result-item">
-            <img src="../assets/img/p2/mapa1_crecimiento_urbano.png" alt="Mapa de Colombia con polígonos UCDB coloreados por área construida en 2025 y crecimiento absoluto 2000–2025" loading="lazy" />
+            <div class="map-container">
+              <iframe src="../assets/maps/p2/mapa1_crecimiento.html" loading="lazy" title="Expansión urbana construida por ciudad — Colombia 2025" style="height:500px;"></iframe>
+            </div>
             <p class="result-caption">Expansión urbana construida por ciudad — Colombia 2025</p>
           </div>
           <div class="result-item">
-            <img src="../assets/img/p2/mapa2_sprawl_2025.png" alt="Mapa de Colombia con ciudades coloreadas por patrón: rojo=sprawl severo, azul=densificación" loading="lazy" />
+            <div class="map-container">
+              <iframe src="../assets/maps/p2/mapa2_sprawl.html" loading="lazy" title="Patrón sprawl vs. densificación por ciudad — 2025" style="height:500px;"></iframe>
+            </div>
             <p class="result-caption">Patrón sprawl vs. densificación por ciudad — 2025</p>
           </div>
           <div class="result-item">
-            <img src="../assets/img/p2/mapa4_vulnerabilidad_compuesta.png" alt="Mapa de Colombia con polígonos UCDB coloreados por índice de vulnerabilidad compuesta 0–1" loading="lazy" />
+            <div class="map-container">
+              <iframe src="../assets/maps/p2/mapa3_amenazas.html" loading="lazy" title="Exposición a amenazas por movimientos en masa e inundación — 2025" style="height:500px;"></iframe>
+            </div>
+            <p class="result-caption">Exposición a amenazas naturales por ciudad — 2025</p>
+          </div>
+          <div class="result-item">
+            <div class="map-container">
+              <iframe src="../assets/maps/p2/mapa4_vulnerabilidad.html" loading="lazy" title="Índice de vulnerabilidad urbana compuesta — 6 dimensiones 2025" style="height:500px;"></iframe>
+            </div>
             <p class="result-caption">Índice de vulnerabilidad urbana compuesta — 6 dimensiones 2025</p>
           </div>
           <div class="result-item">
-            <img src="../assets/img/p2/fig16_radar_vulnerabilidad.png" alt="Gráfico radar comparando seis ciudades piloto en seis dimensiones de vulnerabilidad urbana" loading="lazy" />
+            <div class="chart-container">
+              <iframe src="../assets/charts/p2/fig16_radar_vulnerabilidad.html" loading="lazy" title="Perfil de vulnerabilidad compuesta — ciudades piloto"></iframe>
+            </div>
             <p class="result-caption">Perfil de vulnerabilidad compuesta — ciudades piloto</p>
           </div>
           <div class="result-item">
-            <img src="../assets/img/p2/fig1_area_total_colombia.png" alt="Gráfico de línea: área urbana total Colombia 1975–2030, de ~378 km² a ~645 km²" loading="lazy" />
+            <div class="chart-container">
+              <iframe src="../assets/charts/p2/fig1_area_total.html" loading="lazy" title="Evolución del área urbana construida en Colombia 1975–2030"></iframe>
+            </div>
             <p class="result-caption">Evolución del área urbana total en Colombia 1975–2030</p>
           </div>
-          <div class="result-item">
-            <img src="../assets/img/p2/fig4_scatter_sprawl.png" alt="Scatter plot: 85 ciudades colombianas, crecimiento área vs. crecimiento poblacional 2000–2025" loading="lazy" />
+          <div class="result-item result-item--full">
+            <div class="chart-container">
+              <iframe src="../assets/charts/p2/fig4_scatter_sprawl.html" loading="lazy" title="Sprawl vs. densificación — 85 ciudades colombianas 2000–2025"></iframe>
+            </div>
             <p class="result-caption">Sprawl vs. densificación — 85 ciudades colombianas 2000–2025</p>
           </div>
         </div>
@@ -235,8 +253,7 @@
     <section class="case-section">
       <div class="container">
         <div class="case-links">
-          <a href="#" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="case.links">Ver repositorio</a>
-          <a href="#" class="btn btn--outline" target="_blank" rel="noopener" data-i18n="case.demo">Ver notebook</a>
+          <a href="https://github.com/wilsonguacheta/urban-growth-colombia" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="case.links">Ver repositorio</a>
         </div>
       </div>
     </section>
