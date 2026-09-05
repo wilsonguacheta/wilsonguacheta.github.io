@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Caso de estudio: análisis SQL del catálogo de un servicio de libros para fundamentar la propuesta de valor de un nuevo producto." />
+  <title>SQL — Servicio de Libros — Wilson Guacheta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav" aria-label="Navegación principal">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo">Wilson Guacheta</a>
+      <ul class="nav__links" role="list">
+        <li><a href="../index.html#about"    data-i18n="nav.about">Sobre mí</a></li>
+        <li><a href="../index.html#projects" data-i18n="nav.projects">Proyectos</a></li>
+        <li><a href="../index.html#contact"  data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button id="lang-toggle" aria-label="Switch language">EN</button>
+        <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- HERO DEL CASO -->
+    <header class="case-hero">
+      <div class="container">
+        <a href="../index.html#projects" class="case-hero__back" data-i18n="case.back">← Proyectos</a>
+        <div class="badge-group" style="margin-bottom: 1rem;">
+          <span class="badge">SQL</span>
+          <span class="badge">PostgreSQL</span>
+          <span class="badge">Pandas</span>
+        </div>
+        <h1 class="case-hero__title" data-i18n="p6.title">SQL — Servicio de Libros</h1>
+        <p class="case-hero__tagline" data-i18n="p6.tagline">Cinco preguntas de negocio resueltas exclusivamente con SQL sobre la base de datos de un servicio de libros, para fundamentar la propuesta de valor de un nuevo producto.</p>
+      </div>
+    </header>
+
+    <!-- 1. RESUMEN EJECUTIVO -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.summary">Resumen ejecutivo</h2>
+        <p>Un servicio de libros pidió estudiar el contenido de su base de datos (libros, editoriales, autores, calificaciones y reseñas) para fundamentar la propuesta de valor de un nuevo producto. Todo el análisis se resuelve con SQL puro sobre PostgreSQL: pandas se usa únicamente para ejecutar las consultas y mostrar resultados, nunca para agregar o filtrar datos que la base pueda resolver. El resultado es una propuesta de valor concreta: el mercado no carece de libros, carece de criterio para elegirlos.</p>
+      </div>
+    </section>
+
+    <!-- 2. CONTEXTO / PROBLEMA -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.context">Contexto / Problema</h2>
+        <p>La pandemia desplazó tiempo libre hacia la lectura en casa, atrayendo a startups que compiten por desarrollar la mejor aplicación para amantes de los libros. Antes de diseñar cualquier funcionalidad de recomendación o descubrimiento, hace falta entender qué tan denso es realmente el catálogo en calificaciones y reseñas — la materia prima de cualquier sistema de recomendación.</p>
+      </div>
+    </section>
+
+    <!-- 3. DATOS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.data">Datos</h2>
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr><th data-i18n="table.characteristic">Característica</th><th data-i18n="table.detail">Detalle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Fuente</td><td>Base de datos PostgreSQL remota del curso TripleTen</td></tr>
+              <tr><td>Tablas</td><td>books, authors, publishers, ratings, reviews</td></tr>
+              <tr><td>Volumen</td><td>1 000 libros · 636 autores · 340 editoriales · 6 456 calificaciones · 2 793 reseñas</td></tr>
+              <tr><td>Acceso</td><td>Consulta directa vía SQLAlchemy + SSL, sin CSVs crudos</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HERRAMIENTAS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.tools">Herramientas y tecnologías</h2>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div>
+            <p class="skills__group-title" data-i18n="p6.tools.db">Base de datos</p>
+            <div class="badge-group"><span class="badge">PostgreSQL</span><span class="badge">SQLAlchemy</span><span class="badge">SSL</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title" data-i18n="p6.tools.viz">Visualización</p>
+            <div class="badge-group"><span class="badge">Matplotlib</span><span class="badge">Seaborn</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title" data-i18n="p6.tools.data-env">Datos y entorno</p>
+            <div class="badge-group"><span class="badge">Python 3.13</span><span class="badge">Pandas</span><span class="badge">python-dotenv</span><span class="badge">Jupyter Lab</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. METODOLOGÍA -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.method">Metodología / Proceso</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step__number">1</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p6.step.1">Verificación de calidad</p>
+              <p class="step__desc">Comprobación de valores ausentes en claves, referencias rotas entre tablas y calificaciones fuera de escala, antes de responder cualquier pregunta.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">2</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p6.step.2">Antigüedad del catálogo</p>
+              <p class="step__desc">¿Cuántos libros se publicaron después del 1 de enero de 2000?</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">3</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p6.step.3">Densidad de reseñas y calificación</p>
+              <p class="step__desc">¿Cuántas reseñas y qué calificación promedio tiene cada libro? Se agrega cada tabla por separado para evitar el producto cartesiano al combinarlas.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">4</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p6.step.4">Concentración editorial</p>
+              <p class="step__desc">¿Qué editorial publicó más libros de más de 50 páginas?</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">5</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p6.step.5">Autor mejor valorado</p>
+              <p class="step__desc">¿Qué autor tiene la calificación promedio más alta, considerando solo libros con al menos 50 calificaciones?</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">6</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p6.step.6">Núcleo de usuarios activos</p>
+              <p class="step__desc">¿Cuántas reseñas escriben, en promedio, los usuarios que calificaron más de 50 libros?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. MI ROL -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.role">Mi rol y contribución</h2>
+        <div class="role-box">
+          <ul>
+            <li>Resolví las cinco preguntas de negocio exclusivamente con SQL (CTEs, joins, agregaciones condicionales con <code>FILTER</code>), usando pandas solo para mostrar resultados ya calculados por la base.</li>
+            <li>Evité el error clásico de unir <code>ratings</code> y <code>reviews</code> directamente en una sola consulta, que multiplicaría las filas por producto cartesiano; agregué cada tabla por separado en subconsultas antes de combinarlas.</li>
+            <li>Verifiqué la integridad de las cinco tablas (claves foráneas, rangos de calificación) antes de responder cualquier pregunta de negocio, confirmando que no hacían falta decisiones de limpieza.</li>
+            <li>Traduje los cinco resultados SQL en una propuesta de valor de producto con tres líneas de acción concretas, no solo en una tabla de cifras.</li>
+            <li>Saneé las credenciales de conexión a la base de datos del curso, moviéndolas de estar hardcodeadas en el notebook a variables de entorno no versionadas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. RESULTADOS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.results">Resultados e insights</h2>
+
+        <div style="overflow-x: auto; margin-bottom: 2rem;">
+          <table class="data-table">
+            <thead>
+              <tr><th data-i18n="table.analysis">Análisis</th><th data-i18n="table.finding">Hallazgo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Antigüedad del catálogo</td><td>819 de 1 000 libros (82%) se publicaron después del 1 de enero de 2000 — catálogo contemporáneo, no un fondo histórico</td></tr>
+              <tr><td>Densidad de calificaciones</td><td>Solo 19 de 1 000 libros superan las 50 valoraciones; un ranking por nota media sería casi plano</td></tr>
+              <tr><td>Densidad de reseñas</td><td>Ningún libro pasa de una decena de reseñas escritas; la reseña es el activo escaso, no la calificación</td></tr>
+              <tr><td>Núcleo de usuarios</td><td>6 usuarios concentran una actividad de reseña muy superior al resto (24,3 reseñas de media vs. 17,2)</td></tr>
+              <tr><td>Concentración editorial</td><td>Penguin Books encabeza el catálogo con 42 libros, seguida de Vintage y Grand Central Publishing</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="result-item">
+            <img src="../assets/img/p6/fig_12.png" alt="Gráfico de barras de libros del catálogo por década de publicación, con fuerte concentración en la década de 2000" loading="lazy" />
+            <p class="result-caption">El catálogo es contemporáneo: la mayoría de los libros se publicó en la década de 2000</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p6/fig_16.png" alt="Panel izquierdo: histograma de número de reseñas de texto por libro, concentrado entre 1 y 3. Panel derecho: histograma de calificación media por libro, concentrado entre 3.5 y 4.5" loading="lazy" />
+            <p class="result-caption">La reseña escrita es escasa; la calificación media se concentra en la parte alta de la escala</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p6/fig_20.png" alt="Gráfico de barras horizontales de las diez editoriales con más libros de más de 50 páginas, encabezado por Penguin Books" loading="lazy" />
+            <p class="result-caption">Penguin Books y sus sellos concentran la mayor parte del catálogo editorial</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. CONCLUSIONES -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.conclusions">Conclusiones</h2>
+        <p><strong>El problema del mercado no es la falta de libros, sino la falta de criterio para elegirlos.</strong> El catálogo es amplio y actual, pero casi no genera opinión utilizable: pocas reseñas, notas uniformemente altas y una comunidad activa diminuta. Tres líneas de acción se desprenden directamente del análisis: convertir la reseña en el eje del producto en vez de un extra opcional, cultivar y dar visibilidad al núcleo mínimo de usuarios muy activos, y recomendar por afinidad entre lectores en lugar de por nota media — con la dependencia del grupo editorial Penguin como riesgo a vigilar en cualquier negociación de contenidos.</p>
+      </div>
+    </section>
+
+    <!-- 9. ENLACES -->
+    <section class="case-section">
+      <div class="container">
+        <div class="case-links">
+          <a href="https://github.com/wilsonguacheta/tripleten-final-project/tree/main/sql_project" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="case.links">Ver repositorio</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><span data-i18n="footer.copy">Wilson Guacheta</span> · <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

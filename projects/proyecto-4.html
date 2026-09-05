@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Caso de estudio: diagnóstico de operadores ineficaces en un servicio de telefonía virtual, con pruebas de hipótesis y dashboard en Tableau Public." />
+  <title>CallMeMaybe — Operadores Ineficaces — Wilson Guacheta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav" aria-label="Navegación principal">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo">Wilson Guacheta</a>
+      <ul class="nav__links" role="list">
+        <li><a href="../index.html#about"    data-i18n="nav.about">Sobre mí</a></li>
+        <li><a href="../index.html#projects" data-i18n="nav.projects">Proyectos</a></li>
+        <li><a href="../index.html#contact"  data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button id="lang-toggle" aria-label="Switch language">EN</button>
+        <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- HERO DEL CASO -->
+    <header class="case-hero">
+      <div class="container">
+        <a href="../index.html#projects" class="case-hero__back" data-i18n="case.back">← Proyectos</a>
+        <div class="badge-group" style="margin-bottom: 1rem;">
+          <span class="badge">Python</span>
+          <span class="badge">Pandas</span>
+          <span class="badge">SciPy</span>
+          <span class="badge">Tableau</span>
+        </div>
+        <h1 class="case-hero__title" data-i18n="p4.title">CallMeMaybe — Operadores Ineficaces</h1>
+        <p class="case-hero__tagline" data-i18n="p4.tagline">Diagnóstico de operadores ineficaces en un servicio de telefonía virtual, a partir de un enunciado ambiguo que hubo que operacionalizar con criterios explícitos y reproducibles.</p>
+      </div>
+    </header>
+
+    <!-- 1. RESUMEN EJECUTIVO -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.summary">Resumen ejecutivo</h2>
+        <p>CallMeMaybe pidió identificar operadores de bajo desempeño en su servicio de telefonía virtual. El enunciado original no definía qué significa "ineficaz", así que el primer trabajo fue construir esa definición operativa (llamadas entrantes perdidas, espera prolongada y bajo volumen de salientes en perfiles que deben hacerlas) antes de calcular nada. El análisis combina limpieza y agregación por operador en Python, dos pruebas de hipótesis con corrección de Holm, y un dashboard interactivo en Tableau Public con la actividad diaria del servicio.</p>
+      </div>
+    </section>
+
+    <!-- 2. CONTEXTO / PROBLEMA -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.context">Contexto / Problema</h2>
+        <p>Los datos registran cada llamada (entrante/saliente, interna/externa, contestada/perdida, duración, espera) asociada a un operador y a un cliente con un plan tarifario. El reto central es que los datos no registran quién debía atender una llamada perdida, por lo que gran parte de la señal que pide el enunciado es, en rigor, inmedible a nivel individual — algo que solo se descubre auditando el propio dataset antes de construir el diagnóstico.</p>
+      </div>
+    </section>
+
+    <!-- 3. DATOS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.data">Datos</h2>
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr><th data-i18n="table.characteristic">Característica</th><th data-i18n="table.detail">Detalle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Fuente</td><td>Dataset del curso TripleTen — telefonía virtual CallMeMaybe</td></tr>
+              <tr><td>Archivos</td><td>telecom_dataset_new.csv (registro de llamadas), telecom_clients.csv (plan tarifario por cliente)</td></tr>
+              <tr><td>Cobertura</td><td>Agosto–noviembre de 2019</td></tr>
+              <tr><td>Granularidad</td><td>Una fila por llamada, con operador, dirección, duración y espera</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HERRAMIENTAS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.tools">Herramientas y tecnologías</h2>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div>
+            <p class="skills__group-title" data-i18n="p4.tools.analysis">Análisis y estadística</p>
+            <div class="badge-group"><span class="badge">Pandas</span><span class="badge">NumPy</span><span class="badge">SciPy</span><span class="badge">Corrección de Holm</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title" data-i18n="p4.tools.viz">Visualización</p>
+            <div class="badge-group"><span class="badge">Matplotlib</span><span class="badge">Seaborn</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title" data-i18n="p4.tools.dashboard">Dashboard</p>
+            <div class="badge-group"><span class="badge">Tableau Public</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title" data-i18n="p4.tools.data-env">Datos y entorno</p>
+            <div class="badge-group"><span class="badge">Python 3.13</span><span class="badge">Jupyter Lab</span><span class="badge">Conda</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. METODOLOGÍA -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.method">Metodología / Proceso</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step__number">1</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p4.step.1">Descomposición del problema</p>
+              <p class="step__desc">Operacionalización del enunciado ambiguo en un plan de análisis explícito y verificable antes de tocar los datos.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">2</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p4.step.2">Limpieza y agregación por operador</p>
+              <p class="step__desc">Clasificación de operadores por perfil de actividad (entrante / mixto / saliente) y agregación de métricas de espera, duración y volumen.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">3</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p4.step.3">Índice de ineficacia</p>
+              <p class="step__desc">Promedio de rangos percentiles dentro del perfil de cada operador; umbral adoptado en el percentil 80 para señalar operadores ineficaces.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">4</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p4.step.4">Hipótesis 1 — espera por perfil</p>
+              <p class="step__desc">¿Los operadores especializados en entrantes esperan más por llamada que los mixtos? Prueba de hipótesis con corrección de Holm.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">5</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p4.step.5">Hipótesis 2 — pérdida por plan</p>
+              <p class="step__desc">¿El plan tarifario del cliente condiciona la tasa de llamadas entrantes perdidas? Comparación entre planes A, B y C.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">6</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p4.step.6">Dashboard Tableau</p>
+              <p class="step__desc">Publicación en Tableau Public de la actividad diaria del servicio: duración de llamadas, tipo de llamada y tasa de pérdida por plan, con filtros interactivos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. MI ROL -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.role">Mi rol y contribución</h2>
+        <div class="role-box">
+          <ul>
+            <li>Diseñé el plan de descomposición del problema (<code>01_decomposicion.ipynb</code>) a partir de un enunciado que no definía "operador ineficaz", proponiendo criterios explícitos y verificables.</li>
+            <li>Construí el índice de ineficacia como promedio de rangos percentiles <em>dentro del perfil</em> de cada operador, evitando penalizar a un operador entrante por no hacer tantas salientes como uno saliente.</li>
+            <li>Formulé y verifiqué las dos hipótesis del caso con la corrección de Holm para comparaciones múltiples, en vez de reportar p-valores sin ajustar.</li>
+            <li>Identifiqué la limitación de fondo del dataset (no se registra a quién correspondía atender una llamada perdida) y la documenté explícitamente en vez de forzar una conclusión que los datos no sostienen.</li>
+            <li>Diseñé y publiqué el dashboard en Tableau Public con los datos ya agregados desde el propio notebook de análisis.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. RESULTADOS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.results">Resultados e insights</h2>
+
+        <div style="overflow-x: auto; margin-bottom: 2rem;">
+          <table class="data-table">
+            <thead>
+              <tr><th data-i18n="table.analysis">Análisis</th><th data-i18n="table.finding">Hallazgo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Diagnóstico general</td><td>Más de la mitad de las llamadas entrantes se pierden; el 99% de esas pérdidas no puede atribuirse a ningún operador — es un problema de cobertura, no de desempeño</td></tr>
+              <tr><td>Operadores ineficaces</td><td>Grupo identificable (espera ~2× mayor, menor volumen) pero mueve apenas el 1,2% del tráfico total</td></tr>
+              <tr><td>Hipótesis 1</td><td>Confirmada: espera mediana de 17,4s en especializados en entrantes vs. 12,0s en mixtos, tras corrección de Holm</td></tr>
+              <tr><td>Hipótesis 2</td><td>Confirmada: clientes del plan B pierden significativamente más llamadas entrantes que los del plan C</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="result-item">
+            <img src="../assets/img/p4/fig_07.png" alt="Tres gráficos circulares: composición del tráfico de llamadas por dirección (entrante/saliente), tipo (interna/externa) y resultado (contestadas/perdidas)" loading="lazy" />
+            <p class="result-caption">Composición del tráfico: 46,6% de las llamadas totales se pierden</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p4/fig_10.png" alt="Gráfico de líneas del volumen diario de llamadas entrantes y salientes entre agosto y diciembre de 2019, con tendencia creciente" loading="lazy" />
+            <p class="result-caption">Volumen diario de llamadas: crecimiento sostenido del servicio en el período analizado</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p4/fig_32.png" alt="Tres diagramas de caja en escala logarítmica comparando espera media, entrantes atendidas por día y salientes por día entre operadores ineficaces y el resto" loading="lazy" />
+            <p class="result-caption">Perfil de los operadores señalados como ineficaces frente al resto: más espera, menos volumen</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p4/fig_41.png" alt="Diagrama de caja del tiempo de espera en llamadas entrantes atendidas, según el perfil del operador (entrante, mixto, saliente)" loading="lazy" />
+            <p class="result-caption">Hipótesis 1 — los operadores especializados en entrantes esperan más por llamada</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p4/fig_44.png" alt="Diagrama de caja de la tasa de pérdida de llamadas entrantes según plan tarifario (A, B, C)" loading="lazy" />
+            <p class="result-caption">Hipótesis 2 — el plan B presenta una tasa de pérdida de entrantes significativamente mayor</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. CONCLUSIONES -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.conclusions">Conclusiones</h2>
+        <p>El problema principal del servicio no está en los operadores individuales: la mayoría de las llamadas perdidas no puede atribuirse a nadie en particular, lo que apunta a un déficit de cobertura o dotación, no a bajo desempeño. La función solicitada (señalar operadores ineficaces) es técnicamente viable y sí identifica un grupo con métricas peores, pero su impacto sobre el tráfico total es marginal. Ambas hipótesis de negocio se confirman estadísticamente: la especialización en entrantes se asocia a peores tiempos de espera, y el plan tarifario del cliente condiciona la calidad del servicio que recibe.</p>
+      </div>
+    </section>
+
+    <!-- 9. ENLACES -->
+    <section class="case-section">
+      <div class="container">
+        <div class="case-links">
+          <a href="https://github.com/wilsonguacheta/tripleten-final-project/tree/main/main_project" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="case.links">Ver repositorio</a>
+          <a href="https://public.tableau.com/views/CallMeMaybe-Tripleten_17882409948760/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" class="btn btn--outline" target="_blank" rel="noopener" data-i18n="p4.links.dashboard">Ver dashboard interactivo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><span data-i18n="footer.copy">Wilson Guacheta</span> · <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

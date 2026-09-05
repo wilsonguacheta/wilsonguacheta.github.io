@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Caso de estudio: auditoría de una prueba A/B de un sistema de recomendaciones frente a su propia especificación, antes de interpretar sus resultados." />
+  <title>Test A/B — Sistema de Recomendaciones — Wilson Guacheta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav" aria-label="Navegación principal">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo">Wilson Guacheta</a>
+      <ul class="nav__links" role="list">
+        <li><a href="../index.html#about"    data-i18n="nav.about">Sobre mí</a></li>
+        <li><a href="../index.html#projects" data-i18n="nav.projects">Proyectos</a></li>
+        <li><a href="../index.html#contact"  data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button id="lang-toggle" aria-label="Switch language">EN</button>
+        <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- HERO DEL CASO -->
+    <header class="case-hero">
+      <div class="container">
+        <a href="../index.html#projects" class="case-hero__back" data-i18n="case.back">← Proyectos</a>
+        <div class="badge-group" style="margin-bottom: 1rem;">
+          <span class="badge">Python</span>
+          <span class="badge">Pandas</span>
+          <span class="badge">SciPy</span>
+          <span class="badge">Estadística inferencial</span>
+        </div>
+        <h1 class="case-hero__title" data-i18n="p5.title">Test A/B — Sistema de Recomendaciones</h1>
+        <p class="case-hero__tagline" data-i18n="p5.tagline">Antes de interpretar los resultados de una prueba A/B hay que verificar que la prueba se ejecutó según su propia especificación. Aquí no se cumplió, y eso cambia por completo la conclusión.</p>
+      </div>
+    </header>
+
+    <!-- 1. RESUMEN EJECUTIVO -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.summary">Resumen ejecutivo</h2>
+        <p>Se evaluó la prueba A/B <code>recommender_system_test</code> de un nuevo sistema de recomendaciones, cuyo objetivo declarado era mejorar en un 10% la conversión en cada etapa del embudo <code>product_page → product_cart → purchase</code>. Antes de comparar los grupos, se auditó si la prueba se había ejecutado conforme a su propia especificación — y no fue así. El análisis documenta cinco incumplimientos concretos y calcula la potencia estadística real de la prueba antes de emitir cualquier recomendación de negocio.</p>
+      </div>
+    </section>
+
+    <!-- 2. CONTEXTO / PROBLEMA -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.context">Contexto / Problema</h2>
+        <p>Es habitual que un equipo de producto reciba los datos de una prueba A/B ya "cerrada" y pida directamente una lectura de resultados. El riesgo de saltarse la auditoría de diseño es interpretar como efecto del producto lo que en realidad es ruido de una prueba mal ejecutada, o peor, contaminada por factores externos como una campaña de marketing simultánea.</p>
+      </div>
+    </section>
+
+    <!-- 3. DATOS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.data">Datos</h2>
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr><th data-i18n="table.characteristic">Característica</th><th data-i18n="table.detail">Detalle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Fuente</td><td>Dataset del curso TripleTen — prueba A/B <code>recommender_system_test</code></td></tr>
+              <tr><td>Archivos</td><td>final_ab_participants_upd_us.csv, final_ab_events_upd_us.csv, final_ab_new_users_upd_us.csv, ab_project_marketing_events_us.csv</td></tr>
+              <tr><td>Embudo evaluado</td><td>login → product_page → product_cart → purchase</td></tr>
+              <tr><td>Objetivo declarado</td><td>+10% de conversión por etapa para el grupo B (nuevo sistema)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HERRAMIENTAS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.tools">Herramientas y tecnologías</h2>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div>
+            <p class="skills__group-title" data-i18n="p5.tools.stats">Estadística inferencial</p>
+            <div class="badge-group"><span class="badge">Prueba de proporciones</span><span class="badge">Cálculo de potencia</span><span class="badge">SciPy</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title" data-i18n="p5.tools.viz">Visualización</p>
+            <div class="badge-group"><span class="badge">Matplotlib</span><span class="badge">Seaborn</span></div>
+          </div>
+          <div>
+            <p class="skills__group-title" data-i18n="p5.tools.data-env">Datos y entorno</p>
+            <div class="badge-group"><span class="badge">Python 3.13</span><span class="badge">Pandas</span><span class="badge">Jupyter Lab</span><span class="badge">Conda</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. METODOLOGÍA -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.method">Metodología / Proceso</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step__number">1</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p5.step.1">Auditoría de la especificación</p>
+              <p class="step__desc">Verificación de tamaño de grupos, muestra objetivo, región de participantes y ventana temporal declarados frente a los datos reales.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">2</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p5.step.2">Detección de solapamiento</p>
+              <p class="step__desc">Cruce con el calendario de campañas de marketing para identificar confusores externos simultáneos a la prueba.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">3</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p5.step.3">Construcción del embudo</p>
+              <p class="step__desc">Conversión de eventos crudos al embudo login → product_page → product_cart → purchase por grupo experimental.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">4</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p5.step.4">Prueba de proporciones por etapa</p>
+              <p class="step__desc">Comparación estadística de la conversión de A vs. B en cada etapa del embudo.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">5</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p5.step.5">Cálculo de potencia estadística</p>
+              <p class="step__desc">Estimación de la potencia real de la prueba dado el tamaño de muestra obtenido, frente al tamaño necesario para detectar el efecto declarado.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__number">6</div>
+            <div class="step__content">
+              <p class="step__label" data-i18n="p5.step.6">Recomendación</p>
+              <p class="step__desc">Síntesis de los hallazgos de diseño y de resultado en una recomendación accionable para el equipo de producto.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. MI ROL -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.role">Mi rol y contribución</h2>
+        <div class="role-box">
+          <ul>
+            <li>Prioricé auditar el diseño de la prueba antes de comparar los grupos, en vez de asumir que los datos ya venían "listos para analizar".</li>
+            <li>Detecté el solapamiento con la campaña de marketing navideña "Christmas & New Year Promo" en la misma región, un confusor externo no declarado en el enunciado.</li>
+            <li>Identifiqué un problema de instrumentación: la mayoría de los compradores no tiene registrado el evento de carrito, lo que limita qué se puede concluir en esa etapa.</li>
+            <li>Calculé la potencia estadística real de la prueba (~30% en <code>purchase</code>) para dimensionar cuánta confianza merece la ausencia de diferencia observada, en vez de interpretar "no significativo" como "no hay efecto".</li>
+            <li>Formulé una recomendación de negocio con condiciones explícitas para repetir la prueba correctamente, no solo un veredicto binario de adoptar/descartar.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. RESULTADOS -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.results">Resultados e insights</h2>
+
+        <div style="overflow-x: auto; margin-bottom: 2rem;">
+          <table class="data-table">
+            <thead>
+              <tr><th data-i18n="table.analysis">Análisis</th><th data-i18n="table.finding">Hallazgo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Auditoría de diseño</td><td>Incumple 5 de 6 parámetros de su especificación: grupos ~3:1 en vez de 50/50, muestra insuficiente (3 675 vs. 6 000 previstos), participantes fuera de la región objetivo, solapamiento con otra prueba y campaña de marketing, período truncado</td></tr>
+              <tr><td>Conversión por etapa</td><td>El grupo B no supera al grupo A en ninguna etapa del embudo; la única diferencia significativa (en <code>product_page</code>) es desfavorable al nuevo sistema</td></tr>
+              <tr><td>Potencia estadística</td><td>~30% en <code>purchase</code> (muy por debajo del 80% habitual); harían falta ~3 500 usuarios/grupo y hubo 655</td></tr>
+              <tr><td>Recomendación</td><td>No adoptar ni descartar el nuevo sistema — repetir la prueba correctamente, con 7 condiciones explícitas de diseño</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="result-item">
+            <img src="../assets/img/p5/fig_10.png" alt="Gráfico de barras de eventos diarios registrados durante la prueba, con la región de la campaña de marketing navideña resaltada, solapada con el período de la prueba" loading="lazy" />
+            <p class="result-caption">Solapamiento entre la prueba A/B y la campaña de marketing "Christmas & New Year Promo"</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p5/fig_19.png" alt="Panel izquierdo: barras de conversión por etapa del embudo para los grupos A y B. Panel derecho: barras horizontales del efecto observado de B frente a A por etapa, comparado con el objetivo declarado de +10%" loading="lazy" />
+            <p class="result-caption">Conversión por etapa: el grupo B queda por debajo del objetivo declarado en las tres etapas del embudo</p>
+          </div>
+          <div class="result-item">
+            <img src="../assets/img/p5/fig_21.png" alt="Panel izquierdo: diagrama de caja de eventos por usuario en cada grupo. Panel derecho: barras del reparto de dispositivos (Android, Mac, PC, iPhone) por grupo" loading="lazy" />
+            <p class="result-caption">Verificación de balance entre grupos: eventos por usuario y distribución de dispositivos</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. CONCLUSIONES -->
+    <section class="case-section">
+      <div class="container">
+        <h2 class="case-section__title" data-i18n="case.conclusions">Conclusiones</h2>
+        <p>La prueba, tal como se ejecutó, no permite responder la pregunta de negocio que la motivó: no cumple su propia especificación de diseño y, además, comparte ventana temporal con una campaña de marketing en la misma región. En las etapas donde hay señal, el nuevo sistema no mejora al actual; en las etapas donde no la hay, la potencia estadística es demasiado baja para concluir nada con confianza. La recomendación no es adoptar ni descartar el sistema, sino repetir la prueba con los grupos balanceados, la muestra completa, la región correcta y sin solapamiento con otras campañas.</p>
+      </div>
+    </section>
+
+    <!-- 9. ENLACES -->
+    <section class="case-section">
+      <div class="container">
+        <div class="case-links">
+          <a href="https://github.com/wilsonguacheta/tripleten-final-project/tree/main/ab_project" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="case.links">Ver repositorio</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><span data-i18n="footer.copy">Wilson Guacheta</span> · <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
